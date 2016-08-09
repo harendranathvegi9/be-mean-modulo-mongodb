@@ -133,7 +133,7 @@ Fetched 4 record(s) in 8ms
 
 ## Pesquisar **todos** os pokemons que possuam os ataques que você adicionou, escolha seu pokemon favorito.##
 ```
-be-mean-pokemons> var query = {moves: {$in: [/pursuit/i]}}
+be-mean-pokemons> var query = {moves: {$all: [/quick attack/i, /pursuit/i]}}
 be-mean-pokemons> db.pokemons.find(query)
 
 {
