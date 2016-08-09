@@ -206,5 +206,26 @@ Fetched 5 record(s) in 3ms
 ## Group ou Aggregate contando a quantidade de pokemons de cada tipo
 
 ```
+be-mean > db.pokemons.aggregate([{ $unwind: '$types' }, { $group: { _id: '$types', count: { $sum: 1 }} }])
+
+```
+
+## Realizar 3 counts na collection pokemons
+
+```
+### todos
+
+be-mean> db.pokemons.count()
+610
+
+### apenas tipo fire
+
+be-mean> db.pokemons.count({types: /fire/i})
+47
+
+### que possuem a defesa maior que 70 
+
+be-mean> db.pokemons.count({defense: {$gt: 70}})
+250
 
 ```
